@@ -44,51 +44,5 @@ const allBlog = async (req, res, next) => {
   }
 };
 
-// let { defaultCurrent, total } = req.query;
-
-// defaultCurrent = parseInt(defaultCurrent);
-// total = parseInt(total);
-
-// const skip = (defaultCurrent - 1) * total;
-
-// console.log(defaultCurrent, total);
-
-// BLOG.aggregate([
-//   {
-//     $match: {
-//       deleted: false,
-//     },
-//   },
-//   {
-//     $skip: limit*currentPage
-//   },
-//   {
-//     $limit: limit
-//   },
-// {
-//   $facet: {
-//     TotalCount: [{ $count: "TotalCount" }],
-//     postData: [
-//       {
-//         $sort: {
-//           createdAt: -1,
-//         },
-//       },
-
-//       {
-//         $skip: skip,
-//       },
-//       {
-//         $limit: total,
-//       },
-//     ],
-//   },
-// },
-// ]).then((result) => {
-//   console.log(result);
-
-//   res.status(200).json(result);
-// });
-// };
 
 module.exports = { doBlog, allBlog };
