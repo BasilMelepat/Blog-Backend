@@ -1,0 +1,17 @@
+const allBlog = async (req, res, next) => {
+  try {
+    const limitValue = parseInt(req.query.limit) || 1;
+    const page = parseInt(req.query.skip) || 5;
+    const skipValue = (page - 1) * limitValue;
+
+    const total = await BLOG.countDocuments();
+
+    const blogs = await BLOG.find().limit(limitValue).skip(skipValue).sort({createdAt:1});
+
+    console.log(blogs);
+
+    res.status(200).json({ blogs, total });
+  } catch (e) {
+    console.log(e);
+  }
+};
